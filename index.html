@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XpertAPI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #4c6ef5;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .request-panel {
+            display: flex;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .request-panel select {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-right: 10px;
+            flex: 0 0 100px; /* Adjusted width */
+        }
+
+        .request-panel input {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-right: 10px;
+            flex: 1 1 auto; /* Increased width */
+        }
+
+        .request-panel button {
+            padding: 10px 20px;
+            background: #4c6ef5;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .tabs {
+            display: flex;
+            background: #e9ecef;
+            padding: 10px 20px;
+            gap: 20px;
+        }
+
+        .tabs button {
+            border: none;
+            background: none;
+            color: #495057;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tabs button.active {
+            color: #4c6ef5;
+            border-bottom-color: #4c6ef5;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f3f5;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>XpertAPI</h1>
+    </header>
+    <div class="container">
+        <div class="request-panel">
+            <select id="method">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+            </select>
+            <input id="url" type="text" placeholder="Enter request URL" />
+            <button id="sendRequest">Send</button>
+        </div>
+        <div class="tabs">
+            <button class="tab-button active" data-tab="parameters">Parameters</button>
+            <button class="tab-button" data-tab="body">Body</button>
+            <button class="tab-button" data-tab="headers">Headers</button>
+        </div>
+        <div class="content">
+            <div class="tab-content parameters">
+                <h2>Parameters</h2>
+                <p>Coming Soon!</p>
+            </div>
+            <div class="tab-content body" style="display: none;">
+                <h2>Body</h2>
+                <textarea id="body" rows="6" style="width: 100%;"></textarea>
+            </div>
+            <div class="tab-content headers" style="display: none;">
+                <h2>Headers</h2>
+                <textarea id="headers" rows="6" style="width: 100%;"></textarea>
+            </div>
+            <div class="response">
+                <h2>Response</h2>
+                <pre id="response-output">No response yet...</pre>
+            </div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>
